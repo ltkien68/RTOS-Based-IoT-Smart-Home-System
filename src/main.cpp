@@ -1,17 +1,18 @@
 #include <Arduino.h>
 
 #define LED_PIN 18
+#define BUTTON_PIN 23
 
 void setup() {
-
   pinMode(LED_PIN, OUTPUT);
+  pinMode(BUTTON_PIN, INPUT_PULLUP);
 }
 
 void loop() {
-
-  digitalWrite(LED_PIN, HIGH);
-  delay(200);
-
-  digitalWrite(LED_PIN, LOW);
-  delay(200);
+  if (digitalRead(BUTTON_PIN) == LOW) {
+    digitalWrite(LED_PIN, HIGH);
+  } 
+  else {
+    digitalWrite(LED_PIN, LOW);
+  }
 }
