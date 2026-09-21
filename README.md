@@ -3,8 +3,8 @@
 ### v0.1 - Smart Light Controller 🚧
 - [x] Create PlatformIO project
 - [x] Configure ESP32
-- [ ] GPIO output
-- [ ] Button input
+- [x] GPIO output
+- [x] Button input
 - [ ] Button debounce
 - [ ] Non-blocking control
 
