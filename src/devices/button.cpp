@@ -6,7 +6,7 @@
 bool trangThaiDocTruoc = HIGH;
 bool trangThaiOnDinh = HIGH;
 
-unsigned long thoiGianThayDoi = 0;
+unsigned long thoiGianButtonThayDoi = 0;
 const unsigned long DEBOUNCE_DELAY = 50;
 
 void khoiTaoButton() {
@@ -14,13 +14,15 @@ void khoiTaoButton() {
 }
 
 bool buttonDuocNhan() {
+    unsigned long thoiGianHienTai = millis();
+
     bool trangThaiDoc = digitalRead(BUTTON_PIN);
     if (trangThaiDoc != trangThaiDocTruoc) {
-        thoiGianThayDoi = millis();
+        thoiGianButtonThayDoi = thoiGianHienTai;
     }
-    
+        
     bool vuaNhan = false;
-    if (millis() - thoiGianThayDoi >= DEBOUNCE_DELAY) {
+    if (thoiGianHienTai - thoiGianButtonThayDoi >= DEBOUNCE_DELAY) {
         if (trangThaiDoc != trangThaiOnDinh) {
             trangThaiOnDinh = trangThaiDoc;
 
