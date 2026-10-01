@@ -3,6 +3,8 @@
 #include "devices/light.h"
 #include "devices/dht11.h"
 #include "devices/ldr.h"
+#include "services/manualLightControl.h"
+#include "services/autoLightControl.h"
 
 
 
@@ -15,19 +17,11 @@ void setup() {
 }
 
 void loop() {
-    if (buttonDuocNhan()) {
-        daoTrangThaiDen();
-
-        if (layTrangThaiDen() == HIGH) {
-            Serial.print("Den bat\n");
-        }
-        else {
-            Serial.print("Den tat\n");
-        }
-    }
-
-    // chayDHT11();
-
-    chayLDR();
     
+    manualLightControl();
+    
+    chayDHT11();
+    
+    chayLDR();
+    autoLightControl();
 }

@@ -2,7 +2,6 @@
 #include "devices/ldr.h"
 
 #define LDR_PIN 34
-#define NGUONG_TOI 3200
 
 unsigned long thoiGianDocLDRTruoc = 0;
 int giaTriLDRTruoc = 0;
