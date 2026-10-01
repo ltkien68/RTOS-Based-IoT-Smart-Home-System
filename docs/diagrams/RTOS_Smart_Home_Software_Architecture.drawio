@@ -1,0 +1,43 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/28.2.5 Chrome/138.0.7204.251 Electron/37.6.1 Safari/537.36" version="28.2.5">
+  <diagram id="software-v01" name="Software Architecture">
+    <mxGraphModel dx="1042" dy="698" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="t" value="Software Architecture v0.1" style="text;html=1;align=center;fontSize=22;fontStyle=1;" parent="1" vertex="1">
+          <mxGeometry x="390" y="30" width="380" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="main" value="main.cpp&#xa;Initialization + main loop" style="rounded=1;whiteSpace=wrap;html=1;align=center;strokeWidth=3;fontStyle=1;" parent="1" vertex="1">
+          <mxGeometry x="450" y="100" width="260" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="services" value="services/&#xa;&#xa;lighting_service&#xa;environment_service&#xa;security_service" style="rounded=1;whiteSpace=wrap;html=1;align=center;strokeWidth=2;" parent="1" vertex="1">
+          <mxGeometry x="430" y="240" width="300" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="devices" value="devices/&#xa;&#xa;button | light | dht11 | ldr&#xa;pir | relay | oled | buzzer" style="rounded=1;whiteSpace=wrap;html=1;align=center;strokeWidth=2;" parent="1" vertex="1">
+          <mxGeometry x="120" y="480" width="360" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="network" value="network/  (later)&#xa;&#xa;wifi&#xa;mqtt&#xa;http" style="rounded=1;whiteSpace=wrap;html=1;align=center;strokeWidth=2;dashed=1;" parent="1" vertex="1">
+          <mxGeometry x="680" y="480" width="260" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="rtos" value="FreeRTOS tasks  (later)&#xa;Split responsibilities when concurrency is actually needed" style="rounded=1;whiteSpace=wrap;html=1;align=center;strokeWidth=2;dashed=1;" parent="1" vertex="1">
+          <mxGeometry x="410" y="700" width="340" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="s1" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;endFill=1;" parent="1" source="main" target="services" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="s2" value="read/control hardware" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;endFill=1;" parent="1" source="services" target="devices" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="s3" value="publish / commands" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;endFill=1;dashed=1;" parent="1" source="services" target="network" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="s4" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;endFill=1;dashed=1;" parent="1" source="devices" target="rtos" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="s5" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;endFill=1;dashed=1;" parent="1" source="network" target="rtos" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
