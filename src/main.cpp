@@ -2,6 +2,7 @@
 #include "devices/button.h"
 #include "devices/light.h"
 #include "devices/dht11.h"
+#include "devices/ldr.h"
 
 
 
@@ -25,6 +26,8 @@ void loop() {
         }
     }
 
-    chayDHT11();
+    // chayDHT11();
+
+    chayLDR();
     
 }
